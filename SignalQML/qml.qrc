@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>UnRectangle.qml</file>
+        <file>UnRectangleForm.ui.qml</file>
+    </qresource>
+</RCC>

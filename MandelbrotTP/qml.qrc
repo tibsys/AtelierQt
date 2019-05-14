@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MainPhone.qml</file>
+        <file>FenetreForm.ui.qml</file>
+        <file>ThreadsControl.qml</file>
+        <file>ThreadsControlForm.ui.qml</file>
+        <file>ZoomControl.qml</file>
+        <file>ZoomControlForm.ui.qml</file>
+        <file>IterationsControl.qml</file>
+        <file>IterationsControlForm.ui.qml</file>
+        <file>ActivityControl.qml</file>
+        <file>ActivityControlForm.ui.qml</file>
+        <file>MainPC.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/dossier1">
+        <file alias="TOTO">main.cpp</file>
+    </qresource>
+    <qresource prefix="/dossier1/dossier2"/>
+</RCC>
