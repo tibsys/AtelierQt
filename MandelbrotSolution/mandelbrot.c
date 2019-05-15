@@ -1,15 +1,15 @@
 #include "mandelbrot.h"
 #include <math.h>
 
-double _x1=-2.1;
-double _x2=0.6;
-double _y1=-1.2;
-double _y2=1.2;
+static const double x_1=-2.1;
+static const double x_2=0.6;
+static const double y_1=-1.2;
+static const double y_2=1.2;
 
 //On renvoie une nuance de bleu pour le pixel
 int calculeCouleurPixel(int posX, int posY, int zoom, int iterations_max) {
-    double c_r=posX/(double)zoom+_x1;
-    double c_i=posY/(double)zoom+_y1;
+    double c_r=posX/(double)zoom+x_1;
+    double c_i=posY/(double)zoom+y_1;
     double z_r=0;
     double z_i=0;
     double i=0;

@@ -1,5 +1,5 @@
 #include <QDebug>
-
+#include <QRandomGenerator>
 #include "MonThread.h"
 
 MonThread::MonThread(uint debut, uint fin, QObject *parent) :
@@ -15,13 +15,15 @@ void MonThread::start()
     connect(worker, SIGNAL(destroyed()), thread_, SLOT(deleteLater())); //Au-nettoyage du thread
     //connect(worker, SIGNAL(signalWorkerEnded(uint)), this, SIGNAL(signalNouvelleValeur(uint)));
 
-    connect(thread_, SIGNAL(finished()), worker, SLOT(deleteLater()));x
+    connect(thread_, SIGNAL(finished()), worker, SLOT(deleteLater()));
     worker->moveToThread(thread_);
     QMetaObject::invokeMethod(worker, "start", Qt::QueuedConnection); //Ne pas appeler directement la fonction start() !
     thread_->start();
+    thread_->setProperty("tid", QRandomGenerator::global()->generate()%100);
+    connect(thread_, &QThread::started, [=]{ qDebug() << "MonThread::start, thread " << thread_->property("tid").toUInt() << " id=" << thread_->currentThreadId(); });
 
-    qDebug() << "MonThread::start, thread id=" << thread()->currentThreadId();
-    qDebug() << "MonThread::start (syntaxe2), thread id=";
+    qDebug() << "";
+    qDebug() << "MonThread::start, caller thread id=" << thread()->currentThreadId();
 
 }
 
@@ -42,6 +44,7 @@ MonWorker::MonWorker(uint debut, uint fin, QObject *parent)
 
 void MonWorker::start()
 {
+    qDebug() << "";
     qDebug() << "Worker::start, thread id=" << thread()->currentThreadId();
     uint somme = 0;
     for(uint i = debut_ ; i <= fin_ ; i++)

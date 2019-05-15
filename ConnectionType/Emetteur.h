@@ -8,10 +8,12 @@ class Emetteur : public QObject
     Q_OBJECT
 public:
     explicit Emetteur(QObject *parent = nullptr);
-    void emetSignal();
+    void emetSignal1();
+    void emetSignal2();
 
 signals:
-    void signalUnSignal();
+    void signalSignal1();
+    void signalSignal2();
 
 public slots:
 };

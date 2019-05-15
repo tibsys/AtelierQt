@@ -7,6 +7,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
 {
     qDebug() << "*** 1 - Constructeur de Controller...";
     qDebug() << "   Current thread id : " << thread()->currentThreadId();
+    qDebug() << "";
 }
 
 void Controller::start()
@@ -19,6 +20,7 @@ void Controller::start()
     o1->setObjectName("o1");
     qDebug() << "*** 1 -> o1";
     qDebug() << "   Thread id : " << o1->thread()->currentThreadId();
+    qDebug() << "";
 
     QThread *t2 = new QThread(this);
     t2->setObjectName("t2");

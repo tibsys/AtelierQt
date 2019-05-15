@@ -13,6 +13,7 @@ public:
 class Rectangle
 {
 public:
+    operator QString() const { return QString("Rectangle @0x%1").arg((quintptr)this, QT_POINTER_SIZE * 2, 16, QChar('0')); }
 
 private:
     QList<Point> p;

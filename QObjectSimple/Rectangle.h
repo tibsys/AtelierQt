@@ -8,9 +8,7 @@ class Rectangle : public QObject
     Q_OBJECT
 
 public:
-    Rectangle();
-    //~Rectangle();
-    //Rectangle(const Rectangle&) {}
+    Rectangle();        
 };
 
 #endif // RECTANGLE_H

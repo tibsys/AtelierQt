@@ -2,6 +2,9 @@
 #include "Controleur.h"
 #include "Rectangle.h"
 
+//Choisir le TP
+#define TP 2
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -9,9 +12,14 @@ int main(int argc, char *argv[])
     //Compléter le code pour que l'émission de signal fonctionne    
 
     Controleur c;
-    QObject::connect(&c, &Controleur::signalRectangle, &c, &Controleur::onSignalRectangle, Qt::QueuedConnection);
 
-    qRegisterMetaType<toto::Rectangle>("Rectangle&");
+#if(TP == 1)
+    QObject::connect(&c, &Controleur::signalRectangle, &c, &Controleur::onSignalRectangle, Qt::QueuedConnection);
+#endif
+
+#if(TP == 2)
+    QObject::connect(&c, &Controleur::signalRectangle, &c, &Controleur::onSignalRectangle);
+#endif
 
     c.start();
 

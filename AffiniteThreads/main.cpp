@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     qDebug() << "   Current thread id : " << a.thread()->currentThreadId();
 
     Controller ctrl;
-    ctrl.start();
+    ctrl.start();    
 
     return a.exec();
 }

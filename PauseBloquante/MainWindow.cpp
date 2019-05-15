@@ -26,6 +26,6 @@ void MainWindow::onLcdTimerTimeout() {
 
 void MainWindow::on_pushButton_clicked()
 {
-    QThread::msleep(15000);
-    QMessageBox::information(0, "Test", "La pause est terminée ! Au boulot !", QMessageBox::Ok);
+    QThread::msleep(5000);
+    QMessageBox::information(nullptr, "Test", "La pause est terminée ! Au boulot !", QMessageBox::Ok);
 }

@@ -32,6 +32,6 @@ void MainWindow::on_pushButton_clicked()
 }
 
 void MainWindow::onPauseEnded() {
-    QMessageBox::information(0, "Test", "La pause est terminée ! Au boulot !", QMessageBox::Ok);
+    QMessageBox::information(nullptr, "Test", "La pause est terminée ! Au boulot !", QMessageBox::Ok);
     ui->pushButton->setDisabled(false);
 }

@@ -12,7 +12,7 @@ public:
 signals:
 
 public slots:
-    void onUnSignal();
+    void onSignal();
 };
 
 #endif // RECEPTEUR_H

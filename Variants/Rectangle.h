@@ -7,8 +7,7 @@
 
 class Rectangle : public QObject
 {    
-public:    
-    Rectangle() {}  //<---
+public:        
     virtual ~Rectangle() {}
     Rectangle(const Rectangle& orig) : QObject(), a(orig.a), s(orig.s) {}
 
@@ -17,6 +16,5 @@ public:
     QString s = QString("test");
 };
 
-Q_DECLARE_METATYPE(Rectangle)   //<---
 
 #endif // RECTANGLE_H

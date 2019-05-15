@@ -34,6 +34,8 @@ void Controlleur::onNouvelleValeur(uint val)
 {
     total_ += val;
     nbReponses_ += 1;
+
+    qDebug() << "";
     qDebug() << "Nouvelle valeur : " << val;
 
     if(nbReponses_ == 5)

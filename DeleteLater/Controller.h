@@ -13,12 +13,9 @@ public:
     void start2();
     void start3();
 
-public slots:
-    void onObjetDetruit();
-
 private:
-    QObject *obj_;
-    Recepteur *recepteur_;
+    QObject *obj_ = nullptr;
+    Recepteur *recepteur_ = nullptr;
 };
 
 #endif // CONTROLLER_H

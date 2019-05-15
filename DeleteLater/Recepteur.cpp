@@ -19,9 +19,11 @@ void Recepteur::start() {
 
 void Recepteur::onTimer()
 {
+    qDebug() << "Timeout du timer dans le récepteur";
+
     qDebug() << "Adresse de l'objet : " << obj_;
     qDebug() << obj_->objectName();
-    //Suicide... pas courant mais c'est pour l'exemple
-    //delete this; //Dangereux
+    //Suicide...
+    //delete this; //Dangereux car le récepteur a peut-être des signaux à traiter
     this->deleteLater();
 }

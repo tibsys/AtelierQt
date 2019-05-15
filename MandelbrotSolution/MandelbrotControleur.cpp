@@ -38,7 +38,7 @@ void MandelbrotControleur::calculePointSuivant()
     int couleur = calculeCouleurPixel(x_, y_+offsetY_, zoom_, iterations_);
     QPoint p(x_, y_+offsetY_);
     QColor coule(0,0,0);
-Q_OS_MAC
+
     if(noirEtBlanc_) {
         coule = QColor(couleur, couleur, couleur);
     } else {

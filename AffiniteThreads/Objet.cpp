@@ -2,11 +2,7 @@
 #include <QDebug>
 #include <QTimer>
 
-Objet::Objet(QObject *parent) : QObject(parent)
-{
-
-}
-
+Objet::Objet(QObject *parent) : QObject(parent){}
 
 void Objet::debugObjetNonSlot() const {
     debugObjet();
