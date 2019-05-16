@@ -15,6 +15,8 @@ public:
     virtual ~FractalPoint() {}
     FractalPoint(QPoint p, QColor c) : point_(p), couleur_(c) {}
     FractalPoint(const FractalPoint& orig) : point_(orig.point_), couleur_(orig.couleur_) {}
+    QColor getCouleur() const { return couleur_; }
+    QPoint getPoint() const { return point_; }
 
 private:
     QPoint point_;

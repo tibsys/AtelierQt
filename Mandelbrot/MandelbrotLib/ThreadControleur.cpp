@@ -4,9 +4,7 @@
 
 ThreadControleur::ThreadControleur(QObject *parent)
     : QObject(parent), nbThreads_(0), nbThreadsTermines_(0), zoom_(200), iterations_(50), largeur_(1), hauteur_(1), stoppe_(false)
-{
-
-}
+{ }
 
 void ThreadControleur::calculeImage()
 {
