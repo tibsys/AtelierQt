@@ -12,8 +12,7 @@ void MonThread::start()
 {    
     MonWorker* worker = new MonWorker(debut_, fin_);
     connect(worker, SIGNAL(signalWorkerEnded(uint)), this, SLOT(onWorkerEnded(uint)));
-    connect(worker, SIGNAL(destroyed()), thread_, SLOT(deleteLater())); //Au-nettoyage du thread
-    //connect(worker, SIGNAL(signalWorkerEnded(uint)), this, SIGNAL(signalNouvelleValeur(uint)));
+    connect(worker, SIGNAL(destroyed()), thread_, SLOT(deleteLater())); //Auto-nettoyage du thread
 
     connect(thread_, SIGNAL(finished()), worker, SLOT(deleteLater()));
     worker->moveToThread(thread_);
@@ -21,6 +20,7 @@ void MonThread::start()
     thread_->start();
     thread_->setProperty("tid", QRandomGenerator::global()->generate()%100);
     connect(thread_, &QThread::started, [=]{ qDebug() << "MonThread::start, thread " << thread_->property("tid").toUInt() << " id=" << thread_->currentThreadId(); });
+    connect(thread_, &QObject::destroyed, this, &QObject::deleteLater);
 
     qDebug() << "";
     qDebug() << "MonThread::start, caller thread id=" << thread()->currentThreadId();

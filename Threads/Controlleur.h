@@ -13,10 +13,12 @@ public:
 
 private slots:
     void onNouvelleValeur(uint);
+    void termineApplicationSiThreadsDetruits();
 
 private:
-    int total_;
-    int nbReponses_;
+    std::atomic<int> total_;
+    std::atomic<int> nbReponses_;
+    std::atomic<int> nbThreadsTermines_;
 };
 
 #endif // CONTROLLEUR_H
