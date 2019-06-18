@@ -2,6 +2,7 @@
 #include <QList>
 #include <QString>
 #include <QDebug>
+#include <QMap>
 
 int main(int argc, char *argv[])
 {

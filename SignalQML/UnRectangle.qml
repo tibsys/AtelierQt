@@ -7,7 +7,7 @@ UnRectangleForm {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log("rectangle cliqué, émission du signal")
+            console.log("rectangle cliqué, émission du signal: x=" +mouse.x + ", y=" +mouse.y)
             root.rectangleClicked(mouse.x, mouse.y)
         }
     }

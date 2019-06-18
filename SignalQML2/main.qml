@@ -16,7 +16,7 @@ Window {
         rect2.onObjectClicked: {
             console.log("Le signal objectClicked a été reçu !")
             console.log(qsTr("Emetteur : %1").arg(obj))
-            rect1.state = "StateBlue";
+            rect1.state = "StateBlue1";
         }        
 
         Component.onCompleted:  {

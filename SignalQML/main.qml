@@ -12,6 +12,7 @@ Window {
 
         rect.onRectangleClicked: {
             console.log("Le signal rectangleClicked a été reçu !")
+            console.log("x=" +xPosition +", y=" +yPosition)
         }
     }
 
