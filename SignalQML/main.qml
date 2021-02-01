@@ -7,10 +7,10 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    MainForm {
-        anchors.fill: parent        
+    UnRectangle {
+        anchors.fill: parent
 
-        rect.onRectangleClicked: {
+        onRectangleClicked: {
             console.log("Le signal rectangleClicked a été reçu !")
             console.log("x=" +xPosition +", y=" +yPosition)
         }

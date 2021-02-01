@@ -1,14 +1,22 @@
 import QtQuick 2.4
 
-UnRectangleForm {
+Item {
     id: root
+    anchors.fill: parent
     signal rectangleClicked(real xPosition, real yPosition)
 
-    MouseArea {
+    Rectangle {
+        id: rectangle
         anchors.fill: parent
-        onClicked: {
-            console.log("rectangle cliqué, émission du signal: x=" +mouse.x + ", y=" +mouse.y)
-            root.rectangleClicked(mouse.x, mouse.y)
+        color: "#ff0000"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("rectangle cliqué, émission du signal: x=" +mouse.x + ", y=" +mouse.y)
+                root.rectangleClicked(mouse.x, mouse.y)
+            }
         }
     }
+
 }
