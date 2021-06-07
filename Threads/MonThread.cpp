@@ -15,7 +15,9 @@ void MonThread::start()
     connect(worker, SIGNAL(destroyed()), thread_, SLOT(deleteLater())); //Auto-nettoyage du thread
 
     connect(thread_, SIGNAL(finished()), worker, SLOT(deleteLater()));
-    worker->moveToThread(thread_);
+    //Quelle est l'affinité de thread de worker ?
+    worker->moveToThread(thread_);    
+
     QMetaObject::invokeMethod(worker, "start", Qt::QueuedConnection); //Ne pas appeler directement la fonction start() !
     thread_->start();
     thread_->setProperty("tid", QRandomGenerator::global()->generate()%100);

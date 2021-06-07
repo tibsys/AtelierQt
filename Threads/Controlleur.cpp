@@ -67,6 +67,7 @@ void Controlleur::onNouvelleValeur(uint val)
         //threads de se terminer...
         qDebug() << "Utilisation de la mauvaise approche (non-déterministe) pour terminer l'application";
         QTimer::singleShot(500, qApp, SLOT(quit())); //Termine l'exécution de la runloop
+        //qApp->quit();
 #endif
     }
 }

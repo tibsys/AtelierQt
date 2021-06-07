@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QTimer *lcdTimer = new QTimer(this);
     lcdTimer->setSingleShot(false);
     connect(lcdTimer, &QTimer::timeout, this, &MainWindow::onLcdTimerTimeout);
+    //connect(lcdTimer, &QTimer::timeout, [this] { ui->lcdNumber->display(ui->lcdNumber->intValue()+1); } );
     lcdTimer->start();
 }
 

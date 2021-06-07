@@ -14,3 +14,10 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+/*
+     Thread de a : 0x0dc0
+
+
+
+*/

@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
 Item {
-    id: root
+    id: root // Item root;
     anchors.fill: parent
     signal rectangleClicked(real xPosition, real yPosition)
 

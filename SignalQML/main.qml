@@ -10,13 +10,17 @@ Window {
     UnRectangle {
         anchors.fill: parent
 
-        onRectangleClicked: {
+        onRectangleClicked: { //SLOT - signal correspondant : rectangleClicked
             console.log("Le signal rectangleClicked a été reçu !")
             console.log("x=" +xPosition +", y=" +yPosition)
         }
+
+        Component.onCompleted:  { //SLOT - signal correspondant completed de l'item UnRectangle
+            console.log("Rectangle est construit")
+        }
     }
 
-    Component.onCompleted:  {
+    Component.onCompleted:  { //SLOT - signal correspondant completed de l'item Window
         console.log("Démarrage terminé")
     }
 

@@ -4,4 +4,7 @@
         <file alias="TOTO">main.cpp</file>
     </qresource>
     <qresource prefix="/dossier1/dossier2"/>
+    <qresource prefix="/mon/dossier">
+        <file alias="monalias">Rsrc.qrc</file>
+    </qresource>
 </RCC>

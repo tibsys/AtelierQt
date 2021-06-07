@@ -28,7 +28,7 @@ void MainWindow::onLcdTimerTimeout() {
 void MainWindow::on_pushButton_clicked()
 {
     ui->pushButton->setDisabled(true);
-    QTimer::singleShot(2000, this, SLOT(onPauseEnded()));
+    QTimer::singleShot(5000, this, SLOT(onPauseEnded()));
 }
 
 void MainWindow::onPauseEnded() {

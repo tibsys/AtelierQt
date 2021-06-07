@@ -32,7 +32,12 @@ void Controller::start()
     Objet *o2 = new Objet;
     o2->setObjectName("o2");
     qDebug() << "*** 4 -> Appel de fonction debugObjet()";
-    o2->debugObjet();
+
+    qDebug() << "Objet " << objectName();
+    qDebug() << "   Adresse : @" << this;
+    qDebug() << "   Thread id : " << thread()->currentThreadId();
+    qDebug() << "";
+
     qDebug() << "*** 5 -> Déplacement dans le thread t2";
     o2->moveToThread(t2);
     qDebug() << "*** 6 -> Appel de fonction debugObjet()";
@@ -40,6 +45,9 @@ void Controller::start()
     qDebug() << "*** 7 -> Appel de fonction debugObjetNonSlot()";
     o2->debugObjetNonSlot();
     qDebug() << "*** 8 -> Récupération du thread id sur l'objet : " << o2->thread()->currentThreadId();
+
+    QTimer::singleShot(0, o2, [=]{ qDebug() << o2->thread()->currentThreadId(); });
+
     qDebug() << "*** 9 -> Appel de fonction debugObjet() par timer (timeout=0)";
     QTimer::singleShot(0, o2, SLOT(debugObjet()));
     qDebug() << "*** 10 -> Appel de fonction debugObjetFiable()";

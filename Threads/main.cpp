@@ -9,4 +9,7 @@ int main(int argc, char *argv[])
     ctrl.start();
 
     return a.exec();
+
+    //Exécuté après l'appel à la fonction a.quit();
+
 }

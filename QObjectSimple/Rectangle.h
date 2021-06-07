@@ -8,7 +8,10 @@ class Rectangle : public QObject
     Q_OBJECT
 
 public:
-    Rectangle();        
+    Rectangle();
+
+private:
+
 };
 
 #endif // RECTANGLE_H

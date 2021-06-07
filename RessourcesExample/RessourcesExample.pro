@@ -18,4 +18,5 @@ SOURCES += \
         main.cpp
 
 RESOURCES += \
-    Rsrc.qrc
+    Rsrc.qrc \
+    rsrc2.qrc

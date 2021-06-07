@@ -5,7 +5,7 @@
 #include "Recepteur.h"
 
 //Changer ici le numéro du TP
-#define TP 1
+#define TP 8
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     qDebug() << "";
 
 #if(TP == 1 || TP == 5)
-    QObject::connect(&e, &Emetteur::signalSignal1, &r, &Recepteur::onSignal);
+    QObject::connect(&e, &Emetteur::signalSignal1, &r, &Recepteur::onSignal, Qt::AutoConnection);
     QObject::connect(&e, &Emetteur::signalSignal1, &r, &Recepteur::onSignal, Qt::QueuedConnection);
 #endif
 

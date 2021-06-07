@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>FeuxTricolores.qml</file>
+    </qresource>
+</RCC>
