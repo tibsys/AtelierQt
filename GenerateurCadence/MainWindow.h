@@ -31,5 +31,6 @@ private:
     QTimer* timer_ = nullptr;
     int frequenceDemandee_ = 1;
     int compteur_ = 1;
+    QList<QPair<float, float>> points_;
 };
 #endif // MAINWINDOW_H

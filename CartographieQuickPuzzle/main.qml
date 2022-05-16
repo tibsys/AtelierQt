@@ -12,12 +12,8 @@ Window {
 
     Lecteur {
         onSignalNouvelleTrame: {
-            console.log("Signal reçu dans la scène QML")
-            console.log("Mise à jour du positionnement")
-            console.log(gpsPoint)
-            point.coordinate.longitude = gpsPoint.x
-            point.coordinate.latitude = gpsPoint.y
-            map.center = QtPositioning.coordinate(gpsPoint.y, gpsPoint.x)
+            //-- code à insérer
+            //Réception d'un nouveau point, on fait bouger la carte
         }
     }
 

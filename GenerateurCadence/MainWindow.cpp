@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QHostAddress>
+#include <GpxHelper.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -47,7 +48,9 @@ void MainWindow::connectionAuServeur()
     socket_->connectToHost(QHostAddress::LocalHost, 8888);
 
     connect(socket_, &QTcpSocket::connected , this, [=] {
-        ui->console->append(tr("Connexion effectuée... envoi des trames"));
+        ui->console->append(tr("Connexion effectuée... chargement des points"));
+        points_ = GpxHelper::litFichier();
+        ui->console->append(tr("Liste de points chargée... envoi des trames"));
         timer_->start();
         ui->pushButton->setEnabled(false);
         ui->pushButton_2->setEnabled(true);
@@ -57,7 +60,15 @@ void MainWindow::connectionAuServeur()
 void MainWindow::envoiTrame()
 {
     //Envoi d'une trame
-    socket_->write(QString("Trame %1\n").arg(compteur_++).toLatin1());    
+    //On vide la liste progressivement, point après point
+    if(points_.isEmpty()) {
+        qWarning() << "Pas de point dans la liste";
+        return;
+    }
+    QPair<float, float> point = points_.takeFirst();
+    QString trame = QString("%1,%2\n").arg(point.second).arg(point.first);
+    qDebug() << trame;
+    socket_->write(trame.toLatin1());
 }
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)

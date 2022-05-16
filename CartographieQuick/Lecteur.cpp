@@ -1,7 +1,6 @@
 #include "Lecteur.h"
 #include <QTcpServer>
 #include <QTcpSocket>
-#include <QPoint>
 
 Lecteur::Lecteur()
     : server_(new QTcpServer(this))
@@ -17,8 +16,21 @@ void Lecteur::onNouvelleTrame()
 {
     qDebug() << "trame reçue, on avance";
 
-    //Décodage du point : à compléter
-    QPoint point;
 
-    emit signalNouvelleTrame(point);
+    QTcpSocket* sender = qobject_cast<QTcpSocket*>(QObject::sender());
+    if(sender == nullptr) {
+        qWarning() << "Problème avec la socket";
+        return;
+    }
+
+    //Décodage de la trame
+    QByteArray data = sender->readLine();
+    //qDebug() << "Ligne lue : " << data;
+    QStringList split = QString::fromLatin1(data.trimmed()).split(",");
+    if(split.size() != 2) {
+        qWarning() << "Mauvais format de trame : " << split;
+        return;
+    }
+
+    emit signalNouvelleTrame(QPointF(split[0].trimmed().toFloat(), split[1].trimmed().toFloat()));
 }

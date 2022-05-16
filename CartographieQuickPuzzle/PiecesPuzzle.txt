@@ -1,0 +1,46 @@
+
+qmlRegisterType<Lecteur>("Carto", 1, 0, "Lecteur");
+
+---
+
+connect(server_, &QTcpServer::newConnection, [=] {
+    QTcpSocket* client = server_->nextPendingConnection();
+    connect(client, &QTcpSocket::readyRead, this, &Lecteur::onNouvelleTrame);
+});
+
+---
+
+console.log("Signal reçu dans la scène QML")
+console.log("Mise à jour du positionnement")
+console.log(gpsPoint)
+point.coordinate.longitude = gpsPoint.x
+point.coordinate.latitude = gpsPoint.y
+map.center = QtPositioning.coordinate(gpsPoint.y, gpsPoint.x)
+
+---
+
+QTcpSocket* sender = qobject_cast<QTcpSocket*>(QObject::sender());
+if(sender == nullptr) {
+    qWarning() << "Problème avec la socket";
+    return;
+}
+
+---
+
+server_->listen(QHostAddress::LocalHost, 8888);
+
+---
+
+emit signalNouvelleTrame(QPointF(split[0].trimmed().toFloat(), split[1].trimmed().toFloat()));
+
+---
+
+QByteArray data = sender->readLine();
+//qDebug() << "Ligne lue : " << data;
+QStringList split = QString::fromLatin1(data.trimmed()).split(",");
+if(split.size() != 2) {
+    qWarning() << "Mauvais format de trame : " << split;
+    return;
+}
+
+---

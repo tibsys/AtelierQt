@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icones">
+        <file alias="logoENI">logo_ENI.png</file>
+    </qresource>
+</RCC>

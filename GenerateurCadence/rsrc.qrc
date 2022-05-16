@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Routes">
+        <file alias="RouteVTT.gpx">RouteGPS.gpx</file>
+        <file alias="RouteVoiture.gpx">route-des-grandes-alpes-rr-hw.gpx</file>
+    </qresource>
+</RCC>

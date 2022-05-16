@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-static int ITERATIONS = 200;
+static int ITERATIONS = 1000;
 void MainWindow::start()
 {
     qDebug() << "Début : " << QDateTime::currentMSecsSinceEpoch();
